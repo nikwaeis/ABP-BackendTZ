@@ -8,6 +8,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddLocalization();
 
 var app = builder.Build();
 
@@ -16,8 +17,16 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-// app.UseHttpsRedirection();
+var supportedCultures = new[] { "en", "uk" };
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+
 app.UseRouting();
+
+app.UseRequestLocalization(localizationOptions);
 
 app.UseAuthorization();
 
