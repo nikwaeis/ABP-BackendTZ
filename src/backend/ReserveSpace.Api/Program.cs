@@ -8,7 +8,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
-builder.Services.AddLocalization();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 var app = builder.Build();
 
@@ -24,9 +24,9 @@ var localizationOptions = new RequestLocalizationOptions()
     .AddSupportedUICultures(supportedCultures);
 
 
-app.UseRouting();
-
 app.UseRequestLocalization(localizationOptions);
+
+app.UseRouting();
 
 app.UseAuthorization();
 
