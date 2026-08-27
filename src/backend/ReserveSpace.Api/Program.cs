@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using ReserveSpace.Api.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
