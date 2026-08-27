@@ -1,0 +1,7 @@
+FROM mcr.microsoft.com/dotnet/sdk:10.0
+WORKDIR /app
+COPY ["ReserveSpace.Api.csproj", "./"]
+RUN dotnet restore "./ReserveSpace.Api.csproj"
+COPY . .
+EXPOSE 8080
+CMD ["dotnet", "watch", "run", "--non-interactive", "--no-launch-profile", "--no-launch-browser", "--project", "ReserveSpace.Api.csproj", "--urls", "http://+:8080"]
