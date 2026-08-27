@@ -1,11 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ReserveSpace.Api.Domain.Entities;
 
 namespace ReserveSpace.Api.Data.Configurations;
 
+/// <summary>
+/// Конфігурація сутності <see cref="Additions"/> для Entity Framework Core.
+/// </summary>
 public class AdditionsConfiguration : IEntityTypeConfiguration<Additions>
 {
+    /// <summary>
+    /// Налаштовує схему таблиці та обмеження для додаткових послуг.
+    /// </summary>
+    /// <param name="builder">Будівник для конфігурації сутності.</param>
     public void Configure(EntityTypeBuilder<Additions> builder)
     {
         builder.ToTable("additions");

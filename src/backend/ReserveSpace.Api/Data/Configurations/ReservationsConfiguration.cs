@@ -1,11 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ReserveSpace.Api.Domain.Entities;
 
 namespace ReserveSpace.Api.Data.Configurations;
 
+/// <summary>
+/// Конфігурація сутності <see cref="Reservations"/> для Entity Framework Core.
+/// </summary>
 public class ReservationsConfiguration : IEntityTypeConfiguration<Reservations>
 {
+    /// <summary>
+    /// Налаштовує схему таблиці, обмеження та індекси для бронювань.
+    /// </summary>
+    /// <param name="builder">Будівник для конфігурації сутності.</param>
     public void Configure(EntityTypeBuilder<Reservations> builder)
     {
         builder.ToTable("reservations");

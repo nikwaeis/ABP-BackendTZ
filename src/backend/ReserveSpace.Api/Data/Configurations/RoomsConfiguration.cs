@@ -1,11 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ReserveSpace.Api.Domain.Entities;
 
 namespace ReserveSpace.Api.Data.Configurations;
 
+/// <summary>
+/// Конфігурація сутності <see cref="Rooms"/> для Entity Framework Core.
+/// </summary>
 public class RoomsConfiguration : IEntityTypeConfiguration<Rooms>
 {
+    /// <summary>
+    /// Налаштовує схему таблиці та обмеження для сутності конференц-залів.
+    /// </summary>
+    /// <param name="builder">Будівник для конфігурації сутності.</param>
     public void Configure(EntityTypeBuilder<Rooms> builder)
     {
         builder.ToTable("rooms");
@@ -31,6 +38,5 @@ public class RoomsConfiguration : IEntityTypeConfiguration<Rooms>
             .Property(x => x.UpdatedAt)
             .HasColumnType("timestamp with time zone")
             .IsRequired(false);
-        
     }
 }
