@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ReserveSpace.Api.Data;
 using ReserveSpace.Api.Services.Abstractions;
 using ReserveSpace.Api.Services.Implementations;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,11 @@ using (var scope = app.Services.CreateScope())
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference(options =>
+    {
+        options.WithTitle("ReserveSpace API Документація")
+               .WithTheme(ScalarTheme.Moon);
+    });
 }
 
 app.UseRouting();

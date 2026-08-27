@@ -112,5 +112,6 @@ docker compose -f ./docker-compose.dev.yml up --build
 ```
 
 - **API Base URL:** `http://localhost:5000`
+- **Інтерактивна документація (Swagger / Scalar UI):** `http://localhost:5000/scalar/v1`
 - **OpenAPI Schema:** `http://localhost:5000/openapi/v1.json`
 - **Підключення до бази:** PostgreSQL порт `5432`
